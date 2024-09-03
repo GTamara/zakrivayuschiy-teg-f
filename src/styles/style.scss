@@ -15,7 +15,330 @@
 */
 
 .page {
-  min-inline-size: 320px;
-  min-block-size: 100dvb;
-  background:red;
+	@include flex-layout;
+	align-items: center;
+	margin: auto;
+	padding-block: var(--page-inner-offset);
+	color: var(--main-color);
+	font-family: var(--regular-font);
+	font-weight: var(--base-font-weight);
+	min-inline-size: 375px;
+	max-inline-size: 700px;
+	// min-block-size: 100dvb;
+}
+
+.header {
+	@include block-base-styles;
+	margin-block-end: var(--page-inner-offset);
+	padding: clamp(5.278rem, 4.923vw + 4.252rem, 6.167rem) 14px 25px;
+	text-align: center;
+}
+
+.main {
+
+	// width: 100%;
+	@include flex-layout(50px);
+	flex-grow: 1;
+	margin-block-end: 50px;
+}
+
+.theme-menu {
+
+	&__list {
+		display: inline-block;
+	}
+
+	&__item {
+		width: min-content;
+		font-weight: inherit;
+		font-size: 14px;
+		line-height: 1;
+		transition: opacity var(--transition-value);
+		
+		&:not(:last-child) {
+			margin-block-end: 20px;
+		}
+
+		&:has([disabled="true"])::marker {
+			content: '▶';
+			position: absolute;
+			inset-inline-start: 0;
+			inset-block-start: 0;
+
+			@media (prefers-reduced-motion: no-preference) {
+				& {
+					animation: shaking var(--animation-duration) ease-in-out infinite alternate;
+				}
+			}
+		}
+		
+		&:hover {
+			opacity: .6;
+		}
+
+		&:active {
+			opacity: .6;
+		}
+
+		&:has(:disabled) {
+			opacity: .6;
+			pointer-events: none;
+		}
+	}
+
+	&__button {
+		@include button-base-styles;
+		display: block;
+
+		margin: 0;
+		// border: none;
+    	padding: 0;
+		color: inherit;
+		font-family: inherit;
+		font-weight: inherit;
+		font-size: 14px;
+		line-height: 14px;
+
+		&:not(:disabled) {
+			cursor: pointer;
+		}
+		
+	}
+}
+
+.decorated-zone {
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	background-attachment: fixed;
+	transition: var(--slow-animation-transition-value);
+
+	@include decorated-zone-background(var(--repeating-gradient-color),
+		var(--flat-gradient-light-color),
+		var(--flat-gradient-dark-color),
+	);
+}
+
+.card {
+	@include block-base-styles;
+
+	&_bottom-border {
+		border-bottom: 2px solid currentColor;
+	}
+
+	&__title {
+		font-size: 18px;
+		font-weight: var(--bolder-font-weight);
+		line-height: 21.78px;
+		padding: 3px 24px 3px 10px;
+	}
+
+	&__image {
+
+	}
+
+	&__text-block {
+		@include flex-layout(27px);
+		padding: 25px;
+
+		&:last-child {
+			gap: 25px;
+		}
+	}
+
+	&__paragraph {
+		font-size: 18px;
+		font-weight: inherit;
+		line-height: 21px;
+	}
+
+	&__actions {
+		display: flex;
+		justify-content: end;
+		gap: 12px;
+	}
+
+	&__icon-button {
+		@include button-base-styles;
+		background-color: var(--main-bg-color);
+		padding-inline: 0;
+		// transition: var(--transition-value);
+		// fill: currentColor;
+		block-size: 100%;
+	}
+
+	&__like-button {
+		padding: 12px 37px;
+		background-color: var(--main-bg-color);
+	}
+}
+
+.image-block {
+	position: relative;
+
+	&__img {
+		display: block;
+		width: 100%;
+	}
+
+	&__label {
+		position: absolute;
+		inset-inline-end: 25px;
+		inset-block-start: 25px;
+		opacity: .5;
+
+		font-family: var(--accent-font), serif;
+		font-size: 14px;
+		font-weight: inherit;
+		line-height: 14px;
+
+		text-shadow:
+			-1px 0 var(--main-bg-color), 
+			0 1px var(--main-bg-color), 
+			1px 0 var(--main-bg-color), 
+			0 -1px var(--main-bg-color);
+
+		@supports((text-stroke: 1px currentColor) or (-webkit-text-stroke: 1px currentColor)) {
+			& {
+				-webkit-text-stroke: 1px var(--main-bg-color);
+				text-stroke: 1px var(--main-bg-color);
+				text-shadow: none;
+			}
+		} 
+	}
+}
+
+.footer {
+
+	&__btn {
+		padding: 15px 21px;
+		background-color: var(--main-bg-color);
+	}
+}
+
+/* ------------------ COMMIN STYLES ----------------------  */
+
+.accent-font {
+	font-family: var(--accent-font), serif;
+}
+
+.bolder-font-weight {
+	font-weight: var(--base-font-weight);
+}
+
+.main-heading {
+	margin-block-end: 20px;
+	font-family: inherit;
+	font-weight: inherit;
+	font-size: clamp(2.722rem, 4.923vw + 1.697rem, 3.611rem);
+	line-height: 1;
+}
+
+.secondary-heading {
+	margin-block-end: 25px;
+	font-family: inherit;
+	font-weight: inherit;
+	font-size: clamp(0.778rem, 2.769vw + 0.201rem, 1.278rem);
+	line-height: 1;
+}
+
+.btn {
+	@include button-base-styles;
+	display: flex;
+	gap: 8px;
+	align-items: center;
+	justify-content: center;
+	border: var(--border);
+	
+	font-family: var(--accent-font), serif;
+	font-size: 14px;
+	font-weight: inherit;
+	line-height: 13px;
+
+	&:focus-visible {
+		box-shadow: 2px 2px var(--main-color);
+	}
+
+	&__title {
+		transition: scale var(--transition-value), color var(--transition-value);
+	}
+
+	&__icon {
+		fill: currentColor;
+		width: 21px;
+		height: 21px;
+	}
+}
+
+.like-icon {
+	inline-size: 39px;
+	block-size: 36px;
+
+	&:focus-visible {
+		border: var(--border);
+	}
+
+	& .core {
+		fill: transparent;
+		@include like-animation (.03s);
+	}
+
+	&:hover .core {
+		fill: currentColor;
+		transition-delay: 0s;
+	}
+
+	&:active .core {
+		fill: var(--heart-color);
+		transition-delay: 0s;
+	}
+
+	& .main-body {
+		fill: transparent;
+		@include like-animation;
+	}
+
+	&:hover .main-body {
+		fill: currentColor;
+		transition-delay: .05s;
+	}
+
+	&:active .main-body {
+		fill: var(--heart-color);
+		transition-delay: .05s;
+	}
+
+	.sparks {
+		opacity: 0;
+	}
+
+	.contour {
+		transition-duration: .1s;
+	}
+
+	&.is-liked {
+		.contour {
+			@include like-animation (.06s);
+			fill: var(--heart-color);
+		}
+
+		.main-body,
+		.core {
+			fill: var(--heart-color);
+		}
+
+		.heart {
+			animation: scale-heart $animation-duration 0.1s ;
+			transform-origin: center;
+			animation-timing-function: ease-in;
+		}
+
+		.sparks {
+			// opacity: 1;
+			animation: sparks $animation-duration $animation-duration;
+			transform-origin: center;
+			animation-timing-function: ease-in;
+		}
+	}
+	
 }

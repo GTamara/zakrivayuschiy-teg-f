@@ -12,25 +12,25 @@ const htmlMinify = require('html-minifier');
 const sass = require('gulp-sass')(require('sass'));
 
 function serve() {
-  browserSync.init({
-    server: {
-      baseDir: './dist'
-    }
-  });
+	browserSync.init({
+		server: {
+			baseDir: './dist'
+		}
+	});
 }
 
 function scss() {
-  const plugins = [
-      autoprefixer(),
-      mediaquery(),
-    //   cssnano()
-  ];
-  return gulp.src('src/styles/index.scss')
-        .pipe(sass())
-        .pipe(concat('bundle.css'))
-        .pipe(postcss(plugins))
-        .pipe(gulp.dest('dist/'))
-        .pipe(browserSync.reload({stream: true}));
+	const plugins = [
+		autoprefixer(),
+		mediaquery(),
+		//   cssnano()
+	];
+	return gulp.src('src/styles/index.scss')
+		.pipe(sass())
+		.pipe(concat('bundle.css'))
+		.pipe(postcss(plugins))
+		.pipe(gulp.dest('dist/'))
+		.pipe(browserSync.reload({ stream: true }));
 }
 
 // function pagesScss() {
@@ -56,25 +56,25 @@ function scss() {
 // }
 
 function html() {
-  const options = {
-	  removeComments: true,
-	  removeRedundantAttributes: true,
-	  removeScriptTypeAttributes: true,
-	  removeStyleLinkTypeAttributes: true,
-	  sortClassName: true,
-	  useShortDoctype: true,
-	  collapseWhitespace: true,
+	const options = {
+		removeComments: true,
+		removeRedundantAttributes: true,
+		removeScriptTypeAttributes: true,
+		removeStyleLinkTypeAttributes: true,
+		sortClassName: true,
+		useShortDoctype: true,
+		collapseWhitespace: true,
 		minifyCSS: true,
 		keepClosingSlash: true
 	};
-  return gulp.src('src/**/*.html')
-        .pipe(plumber())
-        .on('data', function(file) {
-		      const buferFile = Buffer.from(htmlMinify.minify(file.contents.toString(), options))
-		      return file.contents = buferFile
-		    })
-				.pipe(gulp.dest('dist/'))
-        .pipe(browserSync.reload({stream: true}));
+	return gulp.src('src/**/*.html')
+		.pipe(plumber())
+		.on('data', function (file) {
+			const buferFile = Buffer.from(htmlMinify.minify(file.contents.toString(), options))
+			return file.contents = buferFile
+		})
+		.pipe(gulp.dest('dist/'))
+		.pipe(browserSync.reload({ stream: true }));
 }
 
 // function css() {
@@ -92,30 +92,42 @@ function html() {
 // }
 
 function images() {
-  return gulp.src('src/assets/**/*.{jpg,png,svg,gif,ico,webp,avif}')
-    .pipe(gulp.dest('dist/'))
-    .pipe(browserSync.reload({stream: true}));
+	return gulp.src('src/assets/**/*.{jpg,png,svg,gif,ico,webp,avif}')
+		.pipe(gulp.dest('dist/'))
+		.pipe(browserSync.reload({ stream: true }));
+}
+
+function fonts() {
+	return gulp.src('src/assets/**/*.{woff,woff2}')
+		.pipe(gulp.dest('dist/'))
+		.pipe(browserSync.reload({ stream: true }));
+}
+
+function scripts() {
+	return gulp.src('src/**/*.js')
+		.pipe(gulp.dest('dist/'))
+		.pipe(browserSync.reload({ stream: true }));
 }
 
 function clean() {
-  return del('dist');
+	return del('dist');
 }
 
 function watchFiles() {
-//   gulp.watch(['src/**/*.pug'], pug);
-  gulp.watch(['src/**/*.html'], html);
-//   gulp.watch(['src/styles/**/*.css'], css);
-  gulp.watch(['src/styles/**/*.scss'], scss);
-//   gulp.watch(['src/pages/**/*.scss'], pagesScss); 
-  gulp.watch(['src/**/*.{jpg,png,svg,gif,ico,webp,avif}'], images);
+	gulp.watch(['src/**/*.fonts'], fonts);
+	gulp.watch(['src/**/*.html'], html);
+	gulp.watch(['src/**/*.css'], scripts);
+	gulp.watch(['src/styles/**/*.scss'], scss);
+	//   gulp.watch(['src/pages/**/*.scss'], pagesScss); 
+	gulp.watch(['src/**/*.{jpg,png,svg,gif,ico,webp,avif}'], images);
 }
 
-const build = gulp.series(clean, gulp.parallel(html, scss, images));
+const build = gulp.series(clean, gulp.parallel(html, scss, scripts, images, fonts));
 const watchapp = gulp.parallel(build, watchFiles, serve);
 
 exports.html = html;
-// exports.pug = pug;
-// exports.css = css;
+exports.fonts = fonts;
+exports.scripts = scripts;
 exports.scss = scss;
 // exports.pagesScss = pagesScss;
 exports.images = images;
