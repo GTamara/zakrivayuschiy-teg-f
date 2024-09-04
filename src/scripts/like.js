@@ -4,7 +4,7 @@
 ✦ card__icon-button — для кнопки, оборачивающей иконку
 ✦ card__icon-button — для кнопки, оборачивающей иконку
 ✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
-✦ button__text — для обозначения текстового элемента внутри кнопки
+✦ card__button-text — для обозначения текстового элемента внутри кнопки
 Если эти классы поменять в HTML, скрипт перестанет работать. Будьте аккуратны.
 */
 
@@ -29,12 +29,12 @@ function toggleIsLiked(heart, button) {
 function setButtonText(heart, button) {
   if ([...heart.classList].includes('is-liked')) {
     setTimeout(
-      () => (button.querySelector('.button__text').textContent = 'Unlike'),
+      () => (button.querySelector('.card__button-text').textContent = 'Unlike'),
       500
     );
   } else {
     setTimeout(
-      () => (button.querySelector('.button__text').textContent = 'Like'),
+      () => (button.querySelector('.card__button-text').textContent = 'Like'),
       500
     );
   }

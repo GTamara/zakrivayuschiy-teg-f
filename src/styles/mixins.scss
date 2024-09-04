@@ -33,7 +33,9 @@
 	outline: none;
 	// background: transparent;
 	color: inherit;
-	border: none;
+	
+	appearance: none;
+	color: currentColor;
 }
 
 @mixin like-animation ($delay: 0s) {
