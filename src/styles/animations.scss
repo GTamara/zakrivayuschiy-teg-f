@@ -15,7 +15,7 @@
 
 @keyframes shaking {
 	0% {
-		transform: translateX(0px);
+		transform: translateX(0);
 	}
 
 	50% {
@@ -34,7 +34,7 @@
 		content: '';
 		position: absolute;
 		display: block;
-		background-color: currentColor;
+		background-color: currentcolor;
 		transition: scale var(--transition-value);
 		transform-origin: 0;
 		inset-inline-start: 0;
@@ -57,13 +57,12 @@
 		position: absolute;
 		display: block;
 		background-color: var(--scaled-animation-pseudoelement-color);
-		
 		transition: var(--transition-value);
 		transform-origin: 0;
 		inset: 0;
 		scale: 0 1;
-
 		mix-blend-mode: difference;
+
 		// mix-blend-mode: lighten;
 	}
 

@@ -14,6 +14,8 @@
 
 */
 
+/* ----------------------- LAYOUT --------------------------- */
+
 .page {
 	align-items: center;
 	margin: auto;
@@ -21,20 +23,10 @@
 	color: var(--main-color);
 	font-family: var(--regular-font);
 	font-weight: var(--base-font-weight);
-	min-inline-size: 375px;
+	min-inline-size: 371px;
 	max-inline-size: 700px;
 
 	@include flex-layout;
-	// min-block-size: 100dvb;
-
-}
-
-.header {
-	margin-block-end: var(--page-inner-offset);
-	padding: clamp(5.278rem, 4.923vw + 4.252rem, 6.167rem) 14px 25px;
-	text-align: center;
-
-	@include block-base-styles;
 }
 
 .main {
@@ -44,10 +36,43 @@
 	@include flex-layout(50px);
 }
 
+.decorated-zone {
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	background-attachment: fixed;
+	transition: var(--slow-animation-transition-value);
+
+	@include decorated-zone-background(var(--repeating-gradient-color),
+		var(--flat-gradient-light-color),
+		var(--flat-gradient-dark-color),
+	);
+	
+	&:has(.dialog[open]) {
+		overflow: hidden;
+	}
+}
+
+/* ----------------------- HEADER --------------------------- */
+
+
+.header {
+	margin-bottom: var(--page-inner-offset);
+	padding: clamp(6.667rem, 4.863vw + 5.664rem, 7.556rem) 14px 25px;
+	text-align: center;
+
+	@include block-base-styles;
+}
+
 .theme-menu {
+	position: relative;
 
 	&__list {
-		display: inline-block;
+		display: flex;
+		flex-direction: column;
+		width: min-content;
+		margin-left: 50%;
+		transform: translateX(-40%);
 	}
 
 	&__item {
@@ -56,9 +81,9 @@
 		font-size: 14px;
 		line-height: 1;
 		transition: opacity var(--transition-value);
-		
+
 		&:not(:last-child) {
-			margin-block-end: 20px;
+			margin-block-end: 14px;
 		}
 
 		&:has([disabled="true"])::marker {
@@ -90,13 +115,13 @@
 
 	&__button {
 		display: block;
-
 		margin: 0;
     	padding: 0;
 		color: inherit;
 		font-family: inherit;
 		font-size: 14px;
-		line-height: 14px;
+		line-height: 1;
+		text-transform: uppercase;
 		background: transparent;
 		border: none;
 
@@ -109,62 +134,49 @@
 	}
 }
 
-.decorated-zone {
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: cover;
-	background-attachment: fixed;
-	transition: var(--slow-animation-transition-value);
-
-	@include decorated-zone-background(var(--repeating-gradient-color),
-		var(--flat-gradient-light-color),
-		var(--flat-gradient-dark-color),
-	);
-	
-	&:has(.dialog[open]) {
-		overflow: hidden;
-	}
-}
+/* ----------------------- CARD --------------------------- */
 
 .card {
 	@include block-base-styles;
 
 	&_bottom-border {
-		border-bottom: 2px solid currentColor;
+		border-bottom: 2px solid currentcolor;
 	}
 
 	&__title {
-		padding: 3px 24px 3px 10px;
+		padding-inline: 10px;
+		padding-block: 4px;
 		font-weight: var(--bolder-font-weight);
 		font-size: 18px;
-		line-height: 21.78px;
+		line-height: 22px;
 	}
 
 	&__text-block {
-		padding: 25px;
-		@include flex-layout(27px);
-
-		&:last-child {
-			gap: 25px;
-		}
+		--text-block-offset: 25px;
+		padding: var(--text-block-offset);
 	}
 
 	&__paragraph {
 		font-size: 18px;
 		line-height: 21px;
+
+		&:not(:last-of-type) {
+			margin-block-end: 27px;
+		}
 	}
 
 	&__actions {
+		padding-block-start:  24px;
 		display: flex;
 		justify-content: end;
-		gap: 12px;
+		gap: 4px;
 	}
 
 	&__icon-button {
-		padding-inline: 0;
+		padding: 0;
 		background-color: var(--main-bg-color);
-		block-size: 100%;
 		border: none;
+		outline: none;
 	}
 
 	&__like-button {
@@ -184,11 +196,9 @@
 	&__label {
 		position: absolute;
 		opacity: .5;
-
 		font-family: var(--accent-font), serif;
 		font-size: 14px;
 		line-height: 14px;
-
 		text-shadow:
 			-1px 0 var(--main-bg-color), 
 			0 1px var(--main-bg-color), 
@@ -205,19 +215,26 @@
 			}
 		} 
 	}
+
+	
+	&_hidden-overflow {
+		overflow: hidden;
+	}
 }
 
-.footer {
+/* ----------------------- FOOTER --------------------------- */
 
+.footer {
 	&__btn {
 		padding: 15px 21px;
 		background-color: var(--main-bg-color);
 	}
 }
 
+/* ----------------------- DIALOG --------------------------- */
+
 .dialog{
 	--offset: 30px;
-	// scrollbar-gutter: stable;
 
 	position: fixed;
 	inset: 0;
@@ -266,7 +283,7 @@
 		inline-size: 39px;
     	block-size: 39px;
 		flex-shrink: 0;
-		fill: currentColor;
+		fill: currentcolor;
 
 	}
 }
@@ -277,15 +294,11 @@
 	font-family: var(--accent-font), serif;
 }
 
-// .bolder-font-weight {
-// 	font-weight: var(--base-font-weight);
-// }
-
 .main-heading {
 	margin-block-end: 20px;
 	font-family: inherit;
 	font-weight: inherit;
-	font-size: clamp(2.722rem, 4.923vw + 1.697rem, 3.611rem);
+	font-size: clamp(2.722rem, 4.863vw + 1.72rem, 3.611rem);
 	line-height: 1;
 }
 
@@ -293,7 +306,8 @@
 	margin-block-end: 25px;
 	font-family: inherit;
 	font-weight: inherit;
-	font-size: clamp(0.778rem, 2.769vw + 0.201rem, 1.278rem);
+	text-transform: uppercase;
+	font-size: clamp(0.778rem, 2.736vw + 0.214rem, 1.278rem);
 	line-height: 1;
 }
 
@@ -303,12 +317,11 @@
 	align-items: center;
 	gap: 8px;
 	border: var(--border);
-	
 	font-family: var(--accent-font), serif;
 	font-size: 14px;
-	line-height: 13px;
-
+	line-height: 12px;
 	background-color: var(--main-bg-color);
+
 	@include button-base-styles;
 
 	&:focus-visible {
@@ -322,7 +335,7 @@
 	&__icon {
 		inline-size: 21px;
     	block-size: 21px;
-		fill: currentColor;
+		fill: currentcolor;
 	}
 }
 
@@ -336,11 +349,12 @@
 
 	& .core {
 		fill: transparent;
+
 		@include like-animation (.03s);
 	}
 
 	&:hover .core {
-		fill: currentColor;
+		fill: currentcolor;
 		transition-delay: 0s;
 	}
 
@@ -351,11 +365,12 @@
 
 	& .main-body {
 		fill: transparent;
+
 		@include like-animation;
 	}
 
 	&:hover .main-body {
-		fill: currentColor;
+		fill: currentcolor;
 		transition-delay: .05s;
 	}
 
@@ -375,6 +390,7 @@
 	&.is-liked {
 		.contour {
 			fill: var(--heart-color);
+
 			@include like-animation (.06s);
 		}
 
@@ -396,4 +412,40 @@
 		}
 	}
 	
+}
+
+.contrast-filter {
+	filter: contrast(20%);
+}
+
+.blur-filter {
+	filter: blur(0.8rem);
+}
+
+.grayscale-filter {
+	filter: grayscale(0.8);
+}
+
+.saturate-filter {
+	filter: saturate(4);
+}
+
+.hue-rotate-filter {
+	filter: hue-rotate(35deg);
+}
+
+.sepia-filter {
+	filter: sepia(80%);
+}
+
+.invert-filter {
+	filter: invert(0.7);
+}
+
+.grayed-sepia-filter {
+	filter: sepia(3%) grayscale(0.78)
+}
+
+.hue-rotate-complex-filter {
+	filter: hue-rotate(105deg) blur(2px) opacity(70%);
 }
