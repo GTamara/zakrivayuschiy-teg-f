@@ -8,6 +8,11 @@
   box-sizing: border-box;
 }
 
+html {
+	position: relative;
+	font-size: 18px;
+}
+
 body {
   margin: 0;
 }
@@ -32,9 +37,10 @@ a {
 
 button,
 input {
-  color: currentColor;
+  color: currentcolor;
   font-family: inherit;
   font-size: inherit;
+  line-height: inherit;
 }
 
 ul,

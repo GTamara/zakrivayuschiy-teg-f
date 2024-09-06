@@ -12,3 +12,89 @@
 
 Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
 */
+
+@keyframes shaking {
+	0% {
+		transform: translateX(0);
+	}
+
+	50% {
+		transform: translateX(-4px);
+	}
+
+	100% {
+		transform: translateX(0);
+	}
+}
+
+.animated-storke {
+	position: relative;
+
+	&::after {
+		content: '';
+		position: absolute;
+		display: block;
+		background-color: currentcolor;
+		transition: scale var(--transition-value);
+		transform-origin: 0;
+		inset-inline-start: 0;
+		inset-block-end: -3px;
+		inline-size: 100%;
+		scale: 0 1;
+		block-size: 1px;
+	}
+
+	&:focus-within::after {
+		scale: 1 1;
+	}
+}
+
+.scaled-color-animation {
+	position: relative;
+	
+	&::after {
+		content: '';
+		position: absolute;
+		display: block;
+		background-color: var(--scaled-animation-pseudoelement-color);
+		transition: var(--transition-value);
+		transform-origin: 0;
+		inset: 0;
+		scale: 0 1;
+		mix-blend-mode: difference;
+
+		// mix-blend-mode: lighten;
+	}
+
+	&:hover::after {
+		scale: 1 1;
+	}
+}
+
+@keyframes scale-heart {
+	0% {
+		scale: 1 1;
+	}
+
+	50% {
+		scale: 1.5 1.5;
+	}
+
+	100% {
+		scale: 1 1;
+	}
+}
+
+@keyframes sparks {
+	0% {
+		opacity: 0;
+	}
+
+	50% {
+		opacity: .5;
+	}
+
+	100% {
+		opacity: 0;
+	}
+}

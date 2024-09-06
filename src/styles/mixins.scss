@@ -1,0 +1,39 @@
+@mixin decorated-zone-background(
+	$repeating-gradient-color, 
+	$flat-gradient-light-color, 
+	$flat-gradient-dark-color,
+) {
+	background-image: repeating-linear-gradient(0deg,
+		$repeating-gradient-color 0,
+		$repeating-gradient-color 2px,
+			transparent 2px,
+			transparent 4px),
+		repeating-linear-gradient(90deg,
+			$repeating-gradient-color 0,
+			$repeating-gradient-color 2px,
+			transparent 2px,
+			transparent 4px),
+		linear-gradient(180deg, $flat-gradient-light-color 0%, $flat-gradient-dark-color 100%);
+}
+
+@mixin flex-layout($vertical-gap: 0) {
+	display: flex;
+	flex-direction: column;
+	gap: $vertical-gap;
+}
+
+@mixin block-base-styles {
+	// border: 2px solid currentcolor;
+	background-color: var(--main-bg-color);
+	width: 100%;
+}
+
+@mixin button-base-styles {
+	border: none;
+	appearance: none;
+	color: currentcolor;
+}
+
+@mixin like-animation($delay: 0s) {
+	transition: fill $animation-duration linear $delay;
+}
