@@ -60,7 +60,7 @@
 	margin-bottom: var(--page-inner-offset);
 	padding: clamp(6.667rem, 4.863vw + 5.664rem, 7.556rem) 14px 25px;
 	text-align: center;
-	border: 2px solid currentcolor;
+	border: var(--border);
 
 	@include block-base-styles;
 }
@@ -124,7 +124,7 @@
 		line-height: 1;
 		text-transform: uppercase;
 		background: transparent;
-		border: none;
+		outline: none;
 
 		@include button-base-styles;
 
@@ -140,29 +140,19 @@
 .card {
 	@include block-base-styles;
 
-	// &_bottom-border {
-	// 	border-bottom: 2px solid currentcolor;
-
-		// @media (width <= 400px) {
-		// 	& {
-		// 		border-width: 4px;
-		// 	}
-		// }
-	// }
-
 	&__title {
 		padding-inline: 10px;
 		padding-block: 4px;
 		font-weight: var(--bolder-font-weight);
 		font-size: 18px;
 		line-height: 22px;
-		border: 2px solid currentcolor;
+		border: var(--border);
 	}
 
 	&__text-block {
 		--text-block-offset: 25px;
 		padding: var(--text-block-offset);
-		border: 2px solid currentcolor;
+		border: var(--border);
 	}
 
 	&__paragraph {
@@ -179,8 +169,6 @@
 		display: flex;
 		justify-content: end;
 		gap: 8px;
-		// max-height: 38px;
-		// box-sizing: content-box;
 	}
 
 	&__icon-button {
@@ -188,6 +176,11 @@
 		background-color: var(--main-bg-color);
 		border: none;
 		outline: none;
+
+		&:focus-visible {
+			outline: var(--border);
+			outline-offset: -1;
+		}
 		
 	}
 
@@ -201,12 +194,11 @@
 
 .image-block {
 	position: relative;
-	border-inline: 2px solid currentcolor;
+	border-inline: var(--border);
 
 	&__img {
 		display: block;
 		width: 100%;
-		margin-bottom: 1px;
 	}
 
 	&__label {
@@ -256,8 +248,6 @@
 			block-size: 28px;
 		}
 	}
-
-
 }
 
 /* ----------------------- DIALOG --------------------------- */
@@ -345,17 +335,15 @@
 	justify-content: center;
 	align-items: center;
 	gap: 8px;
-	// border: var(--border);
 	font-family: var(--accent-font);
 	font-size: 14px;
 	line-height: 12px;
 	background-color: var(--main-bg-color);
-
 	outline-offset: -3px;
-    border: none;
+    
 
 	@include button-base-styles;
-	outline: 2px solid currentcolor;
+	outline: var(--border);
 	outline-offset: -1px;
 
 	&:focus-visible {
