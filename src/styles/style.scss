@@ -179,15 +179,13 @@
 
 		&:focus-visible {
 			outline: var(--border);
-			outline-offset: -1;
+			outline-offset: -1px;
 		}
 		
 	}
 
 	&__like-button {
 		padding-inline: 37px;
-		max-height: 38px;
-		box-sizing: content-box;
 		background-color: var(--main-bg-color);
 	}
 }
