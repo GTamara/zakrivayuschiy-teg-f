@@ -65,6 +65,16 @@
     @include block-base-styles;
 }
 
+.logo {
+	display: block;
+    margin-block-end: 20px;
+    font-family: inherit;
+    font-weight: inherit;
+    font-size: clamp(2.722rem, 4.863vw + 1.72rem, 3.611rem);
+    line-height: 1;
+	text-decoration: none;
+}
+
 .theme-menu {
     position: relative;
 
@@ -81,37 +91,9 @@
         font-weight: inherit;
         font-size: 14px;
         line-height: 1;
-        transition: opacity var(--transition-value);
 
         &:not(:last-child) {
             margin-block-end: 14px;
-        }
-
-        &:has([disabled='true'])::marker {
-            content: '▶';
-            position: absolute;
-            inset-inline-start: 0;
-            inset-block-start: 0;
-
-            @media (prefers-reduced-motion: no-preference) {
-                & {
-                    animation: shaking var(--animation-duration) ease-in-out
-                        infinite alternate;
-                }
-            }
-        }
-
-        &:hover {
-            opacity: 0.6;
-        }
-
-        &:active {
-            opacity: 0.6;
-        }
-
-        &:has(:disabled) {
-            opacity: 0.6;
-            pointer-events: none;
         }
     }
 
@@ -126,11 +108,36 @@
         text-transform: uppercase;
         background: transparent;
         outline: none;
+		transition: opacity var(--transition-value);
 
         @include button-base-styles;
 
+        &:hover,
+		&:active {
+            opacity: 0.6;
+        }
+
+        &:disabled {
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
         &:not(:disabled) {
             cursor: pointer;
+        }
+
+		&:disabled::before {
+            content: '▶';
+            position: absolute;
+            inset-inline-start: -18px;
+            inset-block-start: 0;
+
+            @media (prefers-reduced-motion: no-preference) {
+                & {
+                    animation: shaking var(--animation-duration) ease-in-out
+                        infinite alternate;
+                }
+            }
         }
     }
 }
@@ -192,6 +199,7 @@
 
 .image-block {
     position: relative;
+	margin: 0;
     border-inline: var(--border);
 
     &__img {
@@ -313,14 +321,6 @@
 }
 
 .main-heading {
-    margin-block-end: 20px;
-    font-family: inherit;
-    font-weight: inherit;
-    font-size: clamp(2.722rem, 4.863vw + 1.72rem, 3.611rem);
-    line-height: 1;
-}
-
-.secondary-heading {
     margin-block-end: 25px;
     font-family: inherit;
     font-weight: inherit;

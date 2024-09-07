@@ -16,12 +16,6 @@
     --flat-gradient-light-color: #e7e7e7;
     --flat-gradient-dark-color: #1a1a1a;
     --scaled-animation-pseudoelement-color: #fff;
-
-    @media (width <= 400px) {
-        .card__paragraph {
-            padding-inline-end: 1px;
-        }
-    }
 }
 
 @media (prefers-color-scheme: light) {
@@ -34,12 +28,6 @@
         --flat-gradient-light-color: #e7e7e7;
         --flat-gradient-dark-color: #1a1a1a;
         --scaled-animation-pseudoelement-color: #fff;
-    }
-
-    @media (width <= 400px) {
-        .card__paragraph {
-            padding-inline-end: 1px;
-        }
     }
 }
 

@@ -14,8 +14,8 @@
 <body class="decorated-zone">
 	<div class="page">
 		<header class="header accent-font">
-			<h1 class="main-heading"> &lt;/HTML&gt; </h1>
-			<h2 class="secondary-heading"> закрывающий тег </h2>
+			<a class="logo" href="#"> &lt;/HTML&gt; </a>
+			<h1 class="main-heading"> закрывающий тег </h1>
 			<nav class="theme-menu header__theme-menu">
 				<!-- Не меняйте разметку этого списка, иначе скрипты перестанут работать -->
 				<ul class="theme-menu__list">
@@ -40,13 +40,18 @@
 		<main class="main">
 			<!-- #1 -->
 			<article class="card">
-				<h2 class="card__title card_bottom-border">
+				<h2 class="card__title">
 					Фритрек и нулевой спринт: Подготовка к работе
 				</h2>
-				<div class="image-block card_bottom-border">
-					<img class="image-block__img" src="images/article-image.jpg" alt="card image">
-					<label class="image-block__label">&lt;/HTML&gt;</label>
-				</div>
+				<figure class="image-block">
+					<picture>
+						<source srcset="images/article-image.avif" type="image/avif">
+						<source srcset="images/article-image.webp" type="image/webp">
+						<source srcset="images/article-image.jpg" type="image/jpeg">
+						<img class="image-block__img" src="images/article-image.jpg" alt="card image">
+					</picture>
+					<figcaption class="image-block__label">&lt;/HTML&gt;</figcaption>
+				</figure>
 				<div class="card__text-block">
 					<p class="card__paragraph">
 						Это было самое начало пути. На этом этапе важно было проникнуться основами и настроиться на
@@ -59,7 +64,7 @@
 						<button class="card__icon-button" type="button">
 							<span class="visually-hidden">Кнопка Like</span>
 							<svg class="like-icon" fill="currentColor" viewBox="0 0 39 36">
-								<g id="heart" clip-path="url(#a)">
+								<g id="heart">
 									<g class="heart">
 										<path class="contour" fill="currentColor"
 											d="M12 6H9v3h3V6Zm3 0h-3v3h3V6ZM9 9H6v3h3V9Zm0 3H6v3h3v-3Zm0 3H6v3h3v-3Zm9-9h-3v3h3V6Zm-6 12H9v3h3v-3Zm3 3h-3v3h3v-3Zm3 3h-3v3h3v-3Zm9-18h3v3h-3V6Zm-3 0h3v3h-3V6Zm6 3h3v3h-3V9Zm0 3h3v3h-3v-3Zm0 3h3v3h-3v-3Zm-9-9h3v3h-3V6Zm6 12h3v3h-3v-3Zm-3 3h3v3h-3v-3Zm-3 3h3v3h-3v-3Zm0 3h-3v3h3v-3Zm0-18h-3v3h3V9Z" />
@@ -71,11 +76,6 @@
 									<path class="sparks" fill="red"
 										d="M36 13h3v3h-3v-3Zm-9 14h3v3h-3v-3Zm-9 6h3v3h-3v-3Zm-9-6h3v3H9v-3ZM24 0h3v3h-3V0Zm9 3h3v3h-3V3ZM3 3h3v3H3V3Zm9-3h3v3h-3V0ZM0 13h3v3H0v-3Z" />
 								</g>
-								<defs>
-									<clipPath id="a">
-										<path fill="#fff" d="M0 0h39v36H0z" />
-									</clipPath>
-								</defs>
 							</svg>
 						</button>
 						<button class="card__like-button btn scaled-color-animation" type="button">
@@ -85,15 +85,26 @@
 				</div>
 			</article>
 
+
 			<!-- #2 -->
 			<article class="card">
-				<h2 class="card__title card_bottom-border">
+				<h2 class="card__title">
 					1 спринт: Я — чистый лист
 				</h2>
-				<div class="image-block card_bottom-border">
-					<img class="image-block__img grayed-sepia-filter" src="images/article-image.jpg" alt="card image">
-					<label class="image-block__label">&lt;/HTML&gt;</label>
-				</div>
+				<figure class="image-block">
+					<picture>
+						<source srcset="images/article-image.avif" type="image/avif">
+						<source srcset="images/article-image.webp" type="image/webp">
+						<source srcset="images/article-image.jpg" type="image/jpeg">
+						<img 
+							class="image-block__img grayed-sepia-filter" 
+							src="images/article-image.jpg" 
+							alt="card image"
+							loading="lazy"
+						>
+					</picture>
+					<figcaption class="image-block__label">&lt;/HTML&gt;</figcaption>
+				</figure>
 				<div class="card__text-block">
 					<p class="card__paragraph">
 						На первых этапах мы работали со страхами и сомнениями, которые часто испытывают новички. Один из них — страх перед чистым листом. Это, конечно же, намного сложнее, чем боязнь куска бумаги. Часто за этим ощущением скрываются более глубокие вопросы: с чего начать? а вдруг будет слишком сложно? что, если я не справлюсь?
@@ -105,7 +116,7 @@
 						<button class="card__icon-button" type="button">
 							<span class="visually-hidden">Кнопка Like</span>
 							<svg class="like-icon" fill="currentColor" viewBox="0 0 39 36">
-								<g id="heart" clip-path="url(#a)">
+								<g id="heart">
 									<g class="heart">
 										<path class="contour" fill="currentColor"
 											d="M12 6H9v3h3V6Zm3 0h-3v3h3V6ZM9 9H6v3h3V9Zm0 3H6v3h3v-3Zm0 3H6v3h3v-3Zm9-9h-3v3h3V6Zm-6 12H9v3h3v-3Zm3 3h-3v3h3v-3Zm3 3h-3v3h3v-3Zm9-18h3v3h-3V6Zm-3 0h3v3h-3V6Zm6 3h3v3h-3V9Zm0 3h3v3h-3v-3Zm0 3h3v3h-3v-3Zm-9-9h3v3h-3V6Zm6 12h3v3h-3v-3Zm-3 3h3v3h-3v-3Zm-3 3h3v3h-3v-3Zm0 3h-3v3h3v-3Zm0-18h-3v3h3V9Z" />
@@ -117,11 +128,6 @@
 									<path class="sparks" fill="red"
 										d="M36 13h3v3h-3v-3Zm-9 14h3v3h-3v-3Zm-9 6h3v3h-3v-3Zm-9-6h3v3H9v-3ZM24 0h3v3h-3V0Zm9 3h3v3h-3V3ZM3 3h3v3H3V3Zm9-3h3v3h-3V0ZM0 13h3v3H0v-3Z" />
 								</g>
-								<defs>
-									<clipPath id="a">
-										<path fill="#fff" d="M0 0h39v36H0z" />
-									</clipPath>
-								</defs>
 							</svg>
 						</button>
 						<button class="card__like-button btn scaled-color-animation" type="button">
@@ -133,13 +139,23 @@
 
 			<!-- #3 -->
 			<article class="card">
-				<h2 class="card__title card_bottom-border">
+				<h2 class="card__title">
 					1 спринт: А если не получится?
 				</h2>
-				<div class="image-block card_bottom-border">
-					<img class="image-block__img saturate-filter" src="images/article-image.jpg" alt="card image">
-					<label class="image-block__label">&lt;css&gt;</label>
-				</div>
+				<figure class="image-block">
+					<picture>
+						<source srcset="images/article-image.avif" type="image/avif">
+						<source srcset="images/article-image.webp" type="image/webp">
+						<source srcset="images/article-image.jpg" type="image/jpeg">
+						<img 
+							class="image-block__img saturate-filter" 
+							src="images/article-image.jpg" 
+							alt="card image"
+							loading="lazy"
+						>
+					</picture>
+					<figcaption class="image-block__label">&lt;css&gt;</figcaption>
+				</figure>
 				<div class="card__text-block">
 					<p class="card__paragraph">
 						Первый проект — позади! Но это всё ещё самое начало пути. Радость могла быстро померкнуть и смениться ожиданием провала. Или вы, наоборот, могли вдохновиться успехами и поверить в себя.
@@ -151,7 +167,7 @@
 						<button class="card__icon-button" type="button">
 							<span class="visually-hidden">Кнопка Like</span>
 							<svg class="like-icon" fill="currentColor" viewBox="0 0 39 36">
-								<g id="heart" clip-path="url(#a)">
+								<g id="heart">
 									<g class="heart">
 										<path class="contour" fill="currentColor"
 											d="M12 6H9v3h3V6Zm3 0h-3v3h3V6ZM9 9H6v3h3V9Zm0 3H6v3h3v-3Zm0 3H6v3h3v-3Zm9-9h-3v3h3V6Zm-6 12H9v3h3v-3Zm3 3h-3v3h3v-3Zm3 3h-3v3h3v-3Zm9-18h3v3h-3V6Zm-3 0h3v3h-3V6Zm6 3h3v3h-3V9Zm0 3h3v3h-3v-3Zm0 3h3v3h-3v-3Zm-9-9h3v3h-3V6Zm6 12h3v3h-3v-3Zm-3 3h3v3h-3v-3Zm-3 3h3v3h-3v-3Zm0 3h-3v3h3v-3Zm0-18h-3v3h3V9Z" />
@@ -163,11 +179,6 @@
 									<path class="sparks" fill="red"
 										d="M36 13h3v3h-3v-3Zm-9 14h3v3h-3v-3Zm-9 6h3v3h-3v-3Zm-9-6h3v3H9v-3ZM24 0h3v3h-3V0Zm9 3h3v3h-3V3ZM3 3h3v3H3V3Zm9-3h3v3h-3V0ZM0 13h3v3H0v-3Z" />
 								</g>
-								<defs>
-									<clipPath id="a">
-										<path fill="#fff" d="M0 0h39v36H0z" />
-									</clipPath>
-								</defs>
 							</svg>
 						</button>
 						<button class="card__like-button btn scaled-color-animation" type="button">
@@ -179,13 +190,23 @@
 
 			<!-- #4 -->
 			<article class="card">
-				<h2 class="card__title card_bottom-border">
+				<h2 class="card__title">
 					2 спринт: Погоня за идеалом
 				</h2>
-				<div class="image-block card_bottom-border">
-					<img class="image-block__img hue-rotate-filter" src="images/article-image.jpg" alt="card image">
-					<label class="image-block__label"></label>
-				</div>
+				<figure class="image-block">
+					<picture>
+						<source srcset="images/article-image.avif" type="image/avif">
+						<source srcset="images/article-image.webp" type="image/webp">
+						<source srcset="images/article-image.jpg" type="image/jpeg">
+						<img 
+							class="image-block__img hue-rotate-filter" 
+							src="images/article-image.jpg" 
+							alt="card image"
+							loading="lazy"
+						>
+					</picture>
+					<figcaption class="image-block__label"></figcaption>
+				</figure>
 				<div class="card__text-block">
 					<p class="card__paragraph">
 						На этом этапе вы уже достаточно разбирались в основах вёрстки, чтобы понять, как много ещё впереди. Вы могли попытаться погнаться за идеалом и понять, что он недостижим. А, может, вы вовсе и не подвержены перфекционизму и вместо того, чтобы сделать идеально, старались просто сделать.
@@ -197,7 +218,7 @@
 						<button class="card__icon-button" type="button">
 							<span class="visually-hidden">Кнопка Like</span>
 							<svg class="like-icon" fill="currentColor" viewBox="0 0 39 36">
-								<g id="heart" clip-path="url(#a)">
+								<g id="heart">
 									<g class="heart">
 										<path class="contour" fill="currentColor"
 											d="M12 6H9v3h3V6Zm3 0h-3v3h3V6ZM9 9H6v3h3V9Zm0 3H6v3h3v-3Zm0 3H6v3h3v-3Zm9-9h-3v3h3V6Zm-6 12H9v3h3v-3Zm3 3h-3v3h3v-3Zm3 3h-3v3h3v-3Zm9-18h3v3h-3V6Zm-3 0h3v3h-3V6Zm6 3h3v3h-3V9Zm0 3h3v3h-3v-3Zm0 3h3v3h-3v-3Zm-9-9h3v3h-3V6Zm6 12h3v3h-3v-3Zm-3 3h3v3h-3v-3Zm-3 3h3v3h-3v-3Zm0 3h-3v3h3v-3Zm0-18h-3v3h3V9Z" />
@@ -209,11 +230,6 @@
 									<path class="sparks" fill="red"
 										d="M36 13h3v3h-3v-3Zm-9 14h3v3h-3v-3Zm-9 6h3v3h-3v-3Zm-9-6h3v3H9v-3ZM24 0h3v3h-3V0Zm9 3h3v3h-3V3ZM3 3h3v3H3V3Zm9-3h3v3h-3V0ZM0 13h3v3H0v-3Z" />
 								</g>
-								<defs>
-									<clipPath id="a">
-										<path fill="#fff" d="M0 0h39v36H0z" />
-									</clipPath>
-								</defs>
 							</svg>
 						</button>
 						<button class="card__like-button btn scaled-color-animation" type="button">
@@ -225,13 +241,23 @@
 
 			<!-- #5 -->
 			<article class="card">
-				<h2 class="card__title card_bottom-border">
+				<h2 class="card__title">
 					2 спринт: О тех, кто рядом
 				</h2>
-				<div class="image-block card_bottom-border">
-					<img class="image-block__img invert-filter" src="images/article-image.jpg" alt="card image">
-					<label class="image-block__label">care</label>
-				</div>
+				<figure class="image-block">
+					<picture>
+						<source srcset="images/article-image.avif" type="image/avif">
+						<source srcset="images/article-image.webp" type="image/webp">
+						<source srcset="images/article-image.jpg" type="image/jpeg">
+						<img 
+							class="image-block__img invert-filter" 
+							src="images/article-image.jpg" 
+							alt="card image"
+							loading="lazy"
+						>
+					</picture>
+					<figcaption class="image-block__label">care</figcaption>
+				</figure>
 				<div class="card__text-block">
 					<p class="card__paragraph">
 						Всё это время вы были не одиноки (хотя, возможно, иногда и чувствовали, что одни против целого мира). Вас окружали одногруппники, команда сопровождения и просто близкие люди, которым можно пожаловаться, если очередной макет просто так не поддавался. Осваивать что-то новое легче, когда рядом есть единомышленники, не правда ли?
@@ -243,7 +269,7 @@
 						<button class="card__icon-button" type="button">
 							<span class="visually-hidden">Кнопка Like</span>
 							<svg class="like-icon" fill="currentColor" viewBox="0 0 39 36">
-								<g id="heart" clip-path="url(#a)">
+								<g id="heart">
 									<g class="heart">
 										<path class="contour" fill="currentColor"
 											d="M12 6H9v3h3V6Zm3 0h-3v3h3V6ZM9 9H6v3h3V9Zm0 3H6v3h3v-3Zm0 3H6v3h3v-3Zm9-9h-3v3h3V6Zm-6 12H9v3h3v-3Zm3 3h-3v3h3v-3Zm3 3h-3v3h3v-3Zm9-18h3v3h-3V6Zm-3 0h3v3h-3V6Zm6 3h3v3h-3V9Zm0 3h3v3h-3v-3Zm0 3h3v3h-3v-3Zm-9-9h3v3h-3V6Zm6 12h3v3h-3v-3Zm-3 3h3v3h-3v-3Zm-3 3h3v3h-3v-3Zm0 3h-3v3h3v-3Zm0-18h-3v3h3V9Z" />
@@ -255,11 +281,6 @@
 									<path class="sparks" fill="red"
 										d="M36 13h3v3h-3v-3Zm-9 14h3v3h-3v-3Zm-9 6h3v3h-3v-3Zm-9-6h3v3H9v-3ZM24 0h3v3h-3V0Zm9 3h3v3h-3V3ZM3 3h3v3H3V3Zm9-3h3v3h-3V0ZM0 13h3v3H0v-3Z" />
 								</g>
-								<defs>
-									<clipPath id="a">
-										<path fill="#fff" d="M0 0h39v36H0z" />
-									</clipPath>
-								</defs>
 							</svg>
 						</button>
 						<button class="card__like-button btn scaled-color-animation" type="button">
@@ -271,13 +292,23 @@
 
 			<!-- #6 -->
 			<article class="card">
-				<h2 class="card__title card_bottom-border">
+				<h2 class="card__title">
 					3 спринт: Обходные стратегии
 				</h2>
-				<div class="image-block card_bottom-border">
-					<img class="image-block__img sepia-filter" src="images/article-image.jpg" alt="card image">
-					<label class="image-block__label">&lt;/support&gt;</label>
-				</div>
+				<figure class="image-block">
+					<picture>
+						<source srcset="images/article-image.avif" type="image/avif">
+						<source srcset="images/article-image.webp" type="image/webp">
+						<source srcset="images/article-image.jpg" type="image/jpeg">
+						<img 
+							class="image-block__img sepia-filter" 
+							src="images/article-image.jpg" 
+							alt="card image"
+							loading="lazy"
+						>
+					</picture>
+					<figcaption class="image-block__label">&lt;/support&gt;</figcaption>
+				</figure>
 				<div class="card__text-block">
 					<p class="card__paragraph">
 						На этом курсе вы постоянно решали разные задачи. В какой-то момент вам могло показаться, что решения просто иссякли. Значит, пришло время посмотреть на задачу под другим углом.
@@ -289,7 +320,7 @@
 						<button class="card__icon-button" type="button">
 							<span class="visually-hidden">Кнопка Like</span>
 							<svg class="like-icon" fill="currentColor" viewBox="0 0 39 36">
-								<g id="heart" clip-path="url(#a)">
+								<g id="heart">
 									<g class="heart">
 										<path class="contour" fill="currentColor"
 											d="M12 6H9v3h3V6Zm3 0h-3v3h3V6ZM9 9H6v3h3V9Zm0 3H6v3h3v-3Zm0 3H6v3h3v-3Zm9-9h-3v3h3V6Zm-6 12H9v3h3v-3Zm3 3h-3v3h3v-3Zm3 3h-3v3h3v-3Zm9-18h3v3h-3V6Zm-3 0h3v3h-3V6Zm6 3h3v3h-3V9Zm0 3h3v3h-3v-3Zm0 3h3v3h-3v-3Zm-9-9h3v3h-3V6Zm6 12h3v3h-3v-3Zm-3 3h3v3h-3v-3Zm-3 3h3v3h-3v-3Zm0 3h-3v3h3v-3Zm0-18h-3v3h3V9Z" />
@@ -301,11 +332,6 @@
 									<path class="sparks" fill="red"
 										d="M36 13h3v3h-3v-3Zm-9 14h3v3h-3v-3Zm-9 6h3v3h-3v-3Zm-9-6h3v3H9v-3ZM24 0h3v3h-3V0Zm9 3h3v3h-3V3ZM3 3h3v3H3V3Zm9-3h3v3h-3V0ZM0 13h3v3H0v-3Z" />
 								</g>
-								<defs>
-									<clipPath id="a">
-										<path fill="#fff" d="M0 0h39v36H0z" />
-									</clipPath>
-								</defs>
 							</svg>
 						</button>
 						<button class="card__like-button btn scaled-color-animation" type="button">
@@ -317,13 +343,23 @@
 
 			<!-- #7 -->
 			<article class="card">
-				<h2 class="card__title card_bottom-border">
+				<h2 class="card__title">
 					3 спринт: Когда опускаются руки
 				</h2>
-				<div class="image-block image-block_hidden-overflow card_bottom-border">
-					<img class="image-block__img blur-filter" src="images/article-image.jpg" alt="card image">
-					<label class="image-block__label">&lt;lifes-style: none; &gt;</label>
-				</div>
+				<figure class="image-block image-block_hidden-overflow">
+					<picture>
+						<source srcset="images/article-image.avif" type="image/avif">
+						<source srcset="images/article-image.webp" type="image/webp">
+						<source srcset="images/article-image.jpg" type="image/jpeg">
+						<img 
+							class="image-block__img blur-filter" 
+							src="images/article-image.jpg" 
+							alt="card image"
+							loading="lazy"
+						>
+					</picture>
+					<figcaption class="image-block__label">&lt;lifes-style: none; &gt;</figcaption>
+				</figure>
 				<div class="card__text-block">
 					<p class="card__paragraph">
 						Во время учёбы часто возникает чувство, когда не знаешь, за что хвататься. Вроде и проектную пора сдавать, и задачи хочется порешать, и в теории получше разобраться, и жизнь не забыть пожить. В такие моменты очень нужна концентрация. Вспомните, откуда вы её черпали.
@@ -335,7 +371,7 @@
 						<button class="card__icon-button" type="button">
 							<span class="visually-hidden">Кнопка Like</span>
 							<svg class="like-icon" fill="currentColor" viewBox="0 0 39 36">
-								<g id="heart" clip-path="url(#a)">
+								<g id="heart">
 									<g class="heart">
 										<path class="contour" fill="currentColor"
 											d="M12 6H9v3h3V6Zm3 0h-3v3h3V6ZM9 9H6v3h3V9Zm0 3H6v3h3v-3Zm0 3H6v3h3v-3Zm9-9h-3v3h3V6Zm-6 12H9v3h3v-3Zm3 3h-3v3h3v-3Zm3 3h-3v3h3v-3Zm9-18h3v3h-3V6Zm-3 0h3v3h-3V6Zm6 3h3v3h-3V9Zm0 3h3v3h-3v-3Zm0 3h3v3h-3v-3Zm-9-9h3v3h-3V6Zm6 12h3v3h-3v-3Zm-3 3h3v3h-3v-3Zm-3 3h3v3h-3v-3Zm0 3h-3v3h3v-3Zm0-18h-3v3h3V9Z" />
@@ -347,11 +383,6 @@
 									<path class="sparks" fill="red"
 										d="M36 13h3v3h-3v-3Zm-9 14h3v3h-3v-3Zm-9 6h3v3h-3v-3Zm-9-6h3v3H9v-3ZM24 0h3v3h-3V0Zm9 3h3v3h-3V3ZM3 3h3v3H3V3Zm9-3h3v3h-3V0ZM0 13h3v3H0v-3Z" />
 								</g>
-								<defs>
-									<clipPath id="a">
-										<path fill="#fff" d="M0 0h39v36H0z" />
-									</clipPath>
-								</defs>
 							</svg>
 						</button>
 						<button class="card__like-button btn scaled-color-animation" type="button">
@@ -363,13 +394,23 @@
 
 			<!-- #8 -->
 			<article class="card">
-				<h2 class="card__title card_bottom-border">
+				<h2 class="card__title">
 					«Сейчас я здесь»
 				</h2>
-				<div class="image-block image-block_hidden-overflow card_bottom-border">
-					<img class="image-block__img hue-rotate-complex-filter" src="images/article-image.jpg" alt="card image">
-					<label class="image-block__label">&lt;experience&gt;</label>
-				</div>
+				<figure class="image-block image-block_hidden-overflow">
+					<picture>
+						<source srcset="images/article-image.avif" type="image/avif">
+						<source srcset="images/article-image.webp" type="image/webp">
+						<source srcset="images/article-image.jpg" type="image/jpeg">
+						<img 
+							class="image-block__img hue-rotate-complex-filter" 
+							src="images/article-image.jpg" 
+							alt="card image"
+							loading="lazy"
+						>
+					</picture>
+					<figcaption class="image-block__label">&lt;experience&gt;</figcaption>
+				</figure>
 				<div class="card__text-block">
 					<p class="card__paragraph">
 						Сейчас вы уже очень много знаете о вёрстке. Но это только начало. Во-первых, впереди ещё много материала про «красотищу». Во-вторых, с окончанием курса учёба не заканчивается. Вёрстка — это целый мир. И этот мир постоянно меняется. Познать его полностью не получится, но это тот случай, когда важен сам процесс познания. Ведь часто путь — и есть результат.
@@ -381,7 +422,7 @@
 						<button class="card__icon-button" type="button">
 							<span class="visually-hidden">Кнопка Like</span>
 							<svg class="like-icon" fill="currentColor" viewBox="0 0 39 36">
-								<g id="heart" clip-path="url(#a)">
+								<g id="heart">
 									<g class="heart">
 										<path class="contour" fill="currentColor"
 											d="M12 6H9v3h3V6Zm3 0h-3v3h3V6ZM9 9H6v3h3V9Zm0 3H6v3h3v-3Zm0 3H6v3h3v-3Zm9-9h-3v3h3V6Zm-6 12H9v3h3v-3Zm3 3h-3v3h3v-3Zm3 3h-3v3h3v-3Zm9-18h3v3h-3V6Zm-3 0h3v3h-3V6Zm6 3h3v3h-3V9Zm0 3h3v3h-3v-3Zm0 3h3v3h-3v-3Zm-9-9h3v3h-3V6Zm6 12h3v3h-3v-3Zm-3 3h3v3h-3v-3Zm-3 3h3v3h-3v-3Zm0 3h-3v3h3v-3Zm0-18h-3v3h3V9Z" />
@@ -393,11 +434,6 @@
 									<path class="sparks" fill="red"
 										d="M36 13h3v3h-3v-3Zm-9 14h3v3h-3v-3Zm-9 6h3v3h-3v-3Zm-9-6h3v3H9v-3ZM24 0h3v3h-3V0Zm9 3h3v3h-3V3ZM3 3h3v3H3V3Zm9-3h3v3h-3V0ZM0 13h3v3H0v-3Z" />
 								</g>
-								<defs>
-									<clipPath id="a">
-										<path fill="#fff" d="M0 0h39v36H0z" />
-									</clipPath>
-								</defs>
 							</svg>
 						</button>
 						<button class="card__like-button btn scaled-color-animation" type="button">
@@ -405,7 +441,7 @@
 						</button>
 					</div>
 				</div>
-			</article>
+			</article>			
 		</main>
 		<footer>
 			<button 
@@ -415,7 +451,7 @@
     			aria-controls="dialog-id"
 			>
 				<svg class="footer__icon btn__icon" viewBox="0 0 40 40">
-					<use href="svg/floppy.svg#floppy">
+					<use href="svg/floppy.svg#floppy" />
 				</svg>
 				<span class="btn__title">Сохранить на память</span>
 			</button>
@@ -424,7 +460,7 @@
 	<dialog class="dialog accent-font" id="dialog-id">
 			<div class="dialog__content">
 				<svg class="dialog__icon" viewBox="0 0 40 40">
-					<use href="svg/floppy.svg#floppy">
+					<use href="svg/floppy.svg#floppy" />
 				</svg>
 				<p class="dialog__text">
 					Вставьте дискету, чтобы продолжить
@@ -436,7 +472,6 @@
 				type="button"
 				onclick="window['dialog-id'].close();"
 			>
-				<span class="visually-hidden">Закрыть окно</span>
 				ок
 			</button>
 	</dialog> 
