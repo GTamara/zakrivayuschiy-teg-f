@@ -1,6 +1,9 @@
 module.exports = {
     "extends": "stylelint-config-standard-scss",
-	//   rules: {
+	  rules: {
+		// 'length-zero-no-unit': true,
+		// "no-irregular-whitespace": true,
+		// "length-zero-no-unit": true
 //     'color-no-invalid-hex': true,
 //     'value-keyword-case': ['lower', { camelCaseSvgKeywords: true }],
 //     'property-no-unknown': true,
@@ -27,5 +30,5 @@ module.exports = {
 //     'at-rule-empty-line-before': 'always',
 //     'selector-class-pattern': null,
 //     'font-family-name-quotes': 'always-where-recommended',
-//   },
+  },
 } 
