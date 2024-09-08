@@ -3,8 +3,6 @@
 ## Репозиторий
 https://github.com/GTamara/zakrivayuschiy-teg-f.git
 
-PR с правками по замечаниям: https://github.com/GTamara/zakrivayuschiy-teg-f/pull/2
-
 Ссылка на опубликованный проект: https://gtamara.github.io/zakrivayuschiy-teg-f/
 
 ---
