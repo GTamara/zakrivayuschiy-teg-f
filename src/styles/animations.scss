@@ -57,13 +57,11 @@
         position: absolute;
         display: block;
         background-color: var(--scaled-animation-pseudoelement-color);
-        transition: var(--transition-value);
+        transition: 0.5s ease-in-out;
         transform-origin: 0;
-        inset: 0;
+        inset: 2px;
         scale: 0 1;
         mix-blend-mode: difference;
-
-        // mix-blend-mode: lighten;
     }
 
     &:hover::after {

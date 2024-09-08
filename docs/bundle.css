@@ -207,12 +207,12 @@ ol {
   position: absolute;
   display: block;
   background-color: var(--scaled-animation-pseudoelement-color);
-  -webkit-transition: var(--transition-value);
-  transition: var(--transition-value);
+  -webkit-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
   -webkit-transform-origin: 0;
       -ms-transform-origin: 0;
           transform-origin: 0;
-  inset: 0;
+  inset: 2px;
   scale: 0 1;
   mix-blend-mode: difference;
 }
@@ -478,8 +478,8 @@ ol {
 }
 
 .card__actions {
-  -webkit-padding-before: 23px;
-          padding-block-start: 23px;
+  -webkit-padding-before: var(--text-block-offset);
+          padding-block-start: var(--text-block-offset);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -502,7 +502,7 @@ ol {
 }
 
 .card__like-button {
-  padding-inline: 37px;
+  inline-size: 128px;
   background-color: var(--main-bg-color);
 }
 
@@ -654,7 +654,7 @@ ol {
           appearance: none;
   color: currentcolor;
   outline: var(--border);
-  outline-offset: -1px;
+  outline-offset: -2px;
 }
 
 .btn:focus-visible {
@@ -837,6 +837,9 @@ ol {
 }
 
 @media (width <= 400px){
+  .image-block__label {
+    inset-inline-end: 13px;
+  }
   .footer__btn {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;

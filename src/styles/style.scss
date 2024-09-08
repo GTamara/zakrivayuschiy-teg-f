@@ -173,7 +173,7 @@
     }
 
     &__actions {
-        padding-block-start: 23px;
+        padding-block-start: var(--text-block-offset);
         display: flex;
         justify-content: end;
         gap: 8px;
@@ -192,7 +192,7 @@
     }
 
     &__like-button {
-        padding-inline: 37px;
+		inline-size: 128px;
         background-color: var(--main-bg-color);
     }
 }
@@ -220,6 +220,12 @@
             0 -1px var(--main-bg-color);
         inset-inline-end: 25px;
         inset-block-start: 25px;
+
+		@media (width <= 400px) {
+			& {
+				inset-inline-end: 13px;
+			}
+		}
 
         @supports (
             (text-stroke: 1px currentColor) or
@@ -342,7 +348,7 @@
     @include button-base-styles;
 
     outline: var(--border);
-    outline-offset: -1px;
+    outline-offset: -2px;
 
     &:focus-visible {
         box-shadow: 2px 2px var(--main-color);
